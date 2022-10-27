@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\ProjetArchiLog\\ProjetArchiLog.csproj": {}
+    "/Users/djibrilcisse/Documents/ProjetArchiLog/ProjetArchiLog/ProjetArchiLog.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\LibraryArchiLog\\LibraryArchiLog.csproj": {
+    "/Users/djibrilcisse/Documents/ProjetArchiLog/LibraryArchiLog/LibraryArchiLog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\LibraryArchiLog\\LibraryArchiLog.csproj",
+        "projectUniqueName": "/Users/djibrilcisse/Documents/ProjetArchiLog/LibraryArchiLog/LibraryArchiLog.csproj",
         "projectName": "LibraryArchiLog",
-        "projectPath": "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\LibraryArchiLog\\LibraryArchiLog.csproj",
-        "packagesPath": "C:\\Users\\thoma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\LibraryArchiLog\\obj\\",
+        "projectPath": "/Users/djibrilcisse/Documents/ProjetArchiLog/LibraryArchiLog/LibraryArchiLog.csproj",
+        "packagesPath": "/Users/djibrilcisse/.nuget/packages/",
+        "outputPath": "/Users/djibrilcisse/Documents/ProjetArchiLog/LibraryArchiLog/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thoma\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/djibrilcisse/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,36 +54,35 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\ProjetArchiLog\\ProjetArchiLog.csproj": {
+    "/Users/djibrilcisse/Documents/ProjetArchiLog/ProjetArchiLog/ProjetArchiLog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\ProjetArchiLog\\ProjetArchiLog.csproj",
+        "projectUniqueName": "/Users/djibrilcisse/Documents/ProjetArchiLog/ProjetArchiLog/ProjetArchiLog.csproj",
         "projectName": "ProjetArchiLog",
-        "projectPath": "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\ProjetArchiLog\\ProjetArchiLog.csproj",
-        "packagesPath": "C:\\Users\\thoma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\ProjetArchiLog\\obj\\",
+        "projectPath": "/Users/djibrilcisse/Documents/ProjetArchiLog/ProjetArchiLog/ProjetArchiLog.csproj",
+        "packagesPath": "/Users/djibrilcisse/.nuget/packages/",
+        "outputPath": "/Users/djibrilcisse/Documents/ProjetArchiLog/ProjetArchiLog/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thoma\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/djibrilcisse/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\LibraryArchiLog\\LibraryArchiLog.csproj": {
-                "projectPath": "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\LibraryArchiLog\\LibraryArchiLog.csproj"
+              "/Users/djibrilcisse/Documents/ProjetArchiLog/LibraryArchiLog/LibraryArchiLog.csproj": {
+                "projectPath": "/Users/djibrilcisse/Documents/ProjetArchiLog/LibraryArchiLog/LibraryArchiLog.csproj"
               }
             }
           }
@@ -137,7 +135,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
         }
       }
     }
