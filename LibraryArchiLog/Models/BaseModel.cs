@@ -8,5 +8,6 @@ namespace LibraryArchiLog.Models
 {
     internal class BaseModel
     {
+
     }
 }
