@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 
-
 namespace LibraryArchiLog.Controllers
 {
     [ApiController]
@@ -25,15 +24,25 @@ namespace LibraryArchiLog.Controllers
             _context = context;
         }
 
-        [ApiVersion("1.0")]
-        [HttpGet]
-        public async Task<IEnumerable<TModel>> GetAll()
-        {
+        //[ApiVersion("1.0")]
+        //[HttpGet]
+        //public async Task<IEnumerable<TModel>> GetAll()
+        //{
             
-            //return  await _context.Brands.ToListAsync();
-            return   _context.Set<TModel>().Where(x => x.Active).ToList();
+        //    //return  await _context.Brands.ToListAsync();
+        //    return   _context.Set<TModel>().Where(x => x.Active).ToList();
 
-        }
+        //}
+
+        //[ApiVersion("2.0")]
+        //[HttpGet]
+        //public async Task<IEnumerable<TModel>> GetAllFilter([FromQuery] String category)
+        //{
+
+        //        return _context.Set<TModel>().Where(x => x.Active).ToList();
+
+
+        //}
 
         [ApiVersion("1.0")]
         [HttpGet("{id}")]
@@ -49,7 +58,7 @@ namespace LibraryArchiLog.Controllers
             return item;
         }
 
-        [ApiVersion("1.0")]
+        [ApiVersion("1.0")] 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutItem(int id, TModel item)
         {
