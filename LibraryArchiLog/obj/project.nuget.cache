@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5bqhydhlAccVLB39GKFpi8e4W61XjsJkO7tqk5PzDuiNDOIck4n766+lreGCnuwxTo2Blts//kGM3XZAoSwTsg==",
+  "dgSpecHash": "mtFTj1i0fOXkd78yrbTAK7opj6WdAA6VkczPBzImIhEZeFXRN84jJHzMTmF/4y+2HAtf8mn38E23eC+exXK0/g==",
   "success": true,
   "projectFilePath": "C:\\Users\\thoma\\Desktop\\Ynov-Cours\\M1\\Cours\\Architecture Logiciel\\ProjetArchiLog\\LibraryArchiLog\\LibraryArchiLog.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,7 @@
     "C:\\Users\\thoma\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\thoma\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\thoma\\.nuget\\packages\\microsoft.aspnetcore.mvc.core\\2.2.5\\microsoft.aspnetcore.mvc.core.2.2.5.nupkg.sha512",
+    "C:\\Users\\thoma\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "C:\\Users\\thoma\\.nuget\\packages\\microsoft.aspnetcore.responsecaching.abstractions\\2.2.0\\microsoft.aspnetcore.responsecaching.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\thoma\\.nuget\\packages\\microsoft.aspnetcore.routing\\2.2.0\\microsoft.aspnetcore.routing.2.2.0.nupkg.sha512",
     "C:\\Users\\thoma\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.2.0\\microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",

@@ -25,6 +25,7 @@ namespace LibraryArchiLog.Controllers
             _context = context;
         }
 
+        [ApiVersion("1.0")]
         [HttpGet]
         public async Task<IEnumerable<TModel>> GetAll()
         {
@@ -34,6 +35,7 @@ namespace LibraryArchiLog.Controllers
 
         }
 
+        [ApiVersion("1.0")]
         [HttpGet("{id}")]
         public async Task<ActionResult<TModel>> GetItem(int id)
         {
@@ -47,7 +49,7 @@ namespace LibraryArchiLog.Controllers
             return item;
         }
 
-
+        [ApiVersion("1.0")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutItem(int id, TModel item)
         {
@@ -77,6 +79,7 @@ namespace LibraryArchiLog.Controllers
             return NoContent();
         }
 
+        [ApiVersion("1.0")]
         [HttpPost]
         public async Task<ActionResult<TModel>> PostItem(TModel item)
         {
@@ -86,6 +89,7 @@ namespace LibraryArchiLog.Controllers
             return CreatedAtAction("GetItem", new { id = item.ID }, item);
         }
 
+        [ApiVersion("1.0")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteItem(int id)
         {
