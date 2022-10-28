@@ -4,8 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjetArchiLog.Models;
 using System;
 using LibraryArchiLog.data;
-using ProjetArchiLog.Models;
-using System.Runtime.ConstrainedExecution;
+
 
 namespace ProjetArchiLog.data
 {
@@ -14,7 +13,7 @@ namespace ProjetArchiLog.data
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             base.OnConfiguring(options);
-            options.UseSqlServer(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = database; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         public DbSet<Product> Products { get; set; }
