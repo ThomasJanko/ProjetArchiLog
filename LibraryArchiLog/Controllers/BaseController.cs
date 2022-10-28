@@ -1,9 +1,8 @@
-﻿using ArchiLibrary.data;
-using ArchiLibrary.Models;
+﻿using LibraryArchiLog.data;
+using LibraryArchiLog.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -11,6 +10,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
+
+
 
 namespace LibraryArchiLog.Controllers
 {

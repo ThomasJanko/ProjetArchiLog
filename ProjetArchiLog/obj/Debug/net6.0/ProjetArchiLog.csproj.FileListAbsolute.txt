@@ -62,3 +62,9 @@ C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\
 C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\obj\Debug\net6.0\ProjetArchiLog.pdb
 C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\obj\Debug\net6.0\ProjetArchiLog.genruntimeconfig.cache
 C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\obj\Debug\net6.0\ref\ProjetArchiLog.dll
+C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
