@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 
-//PUSHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 
 namespace LibraryArchiLog.Controllers
 {
