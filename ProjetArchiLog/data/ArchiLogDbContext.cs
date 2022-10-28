@@ -7,7 +7,7 @@ using LibraryArchiLog.data;
 using ProjetArchiLog.Models;
 using System.Runtime.ConstrainedExecution;
 
-namespace Projet1ArchiLog.data
+namespace ProjetArchiLog.data
 {
     public class ArchiLogDbContext : BaseDbContext
     {
