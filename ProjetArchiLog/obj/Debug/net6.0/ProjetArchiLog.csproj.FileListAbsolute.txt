@@ -68,3 +68,4 @@ C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\
 C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\thoma\Desktop\Ynov-Cours\M1\Cours\Architecture Logiciel\ProjetArchiLog\ProjetArchiLog\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.dll

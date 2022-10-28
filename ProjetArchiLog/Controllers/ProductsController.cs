@@ -11,7 +11,7 @@ using LibraryArchiLog.Controllers;
 
 namespace ProjetArchiLog.Controllers
 {
-    [Route("/api/[controller]")]
+    [Route("/api/v{version:apiVersion}/[controller]")]
     public class ProductsController : BaseController<ArchiLogDbContext, Product>
     {
         public ProductsController(ArchiLogDbContext context):base(context)
