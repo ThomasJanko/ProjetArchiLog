@@ -1,5 +1,5 @@
 # ProjetArchiLog
-https://code-maze.com/paging-aspnet-core-webapi/    paging
+https://code-maze.com/paging-aspnet-core-webapi/    paging \n
 https://code-maze.com/filtering-aspnet-core-webapi/   filtre
 https://code-maze.com/sorting-aspnet-core-webapi/      tris
 https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page?view=aspnetcore-6.0 
