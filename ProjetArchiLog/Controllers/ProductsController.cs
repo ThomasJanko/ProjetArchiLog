@@ -16,6 +16,21 @@ namespace ProjetArchiLog.Controllers
     {
         public ProductsController(ArchiLogDbContext context):base(context)
         {
+            
+        }
+
+        [ApiVersion("2.0")]
+        [HttpGet]
+        public async Task<IEnumerable<Product>> GetAllFilter([FromQuery] String? category)
+        {
+            if(category == null)
+            {
+                return _context.Set<Product>().Where(x => x.Active).ToList();
+
+            }
+
+            return _context.Set<Product>().Where(x => x.Active && x.Category == category).ToList();
+
 
         }
     }

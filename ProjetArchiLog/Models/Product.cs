@@ -5,7 +5,7 @@ using LibraryArchiLog.Models;
 
 namespace ProjetArchiLog.Models
 {
-    public class Product : BaseModel
+    public class Product : BaseModel 
     {
         //[Key]
         //public int ID { get; set; }
@@ -14,6 +14,7 @@ namespace ProjetArchiLog.Models
         [Required()]
         public string? Name { get; set; }
 
+        [Required(ErrorMessage = "Want to sell it Free ???")]
         public int? Price { get; set; }
 
 
