@@ -45,8 +45,6 @@ namespace ProjetArchiLog.Controllers
             }
 
             return _context.Set<Product>().Where(x => x.Active && x.Category == category).ToList();
-
-
         }
 
 
