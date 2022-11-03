@@ -8,8 +8,8 @@ namespace ProjetArchiLog.Models
     public class Product : BaseModel 
     {
         //[Key]
-        //public int ID { get; set; }
-        //public DateTime CreatedAt { get; set; }
+        public int ID { get; set; }
+       public DateTime CreatedAt { get; set; }
         [StringLength(50)]
         [Required()]
         public string? Name { get; set; }
