@@ -17,7 +17,7 @@ namespace ProjetArchiLog.data
         }
 
         public DbSet<Product> Products { get; set; }
-        
+
 
     }
 }

@@ -22,7 +22,7 @@ namespace ProjetArchiLog.Controllers
         }
 
         [ApiVersion("2.0")]
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAll([FromQuery] PaginationFilter filter)
         {
             var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
@@ -46,7 +46,7 @@ namespace ProjetArchiLog.Controllers
 
         // }
         [ApiVersion("2.0")]
-        [HttpGet("{id}")]
+        [HttpGet("test/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var content = await _context.Products.Where(a => a.ID == id).FirstOrDefaultAsync();

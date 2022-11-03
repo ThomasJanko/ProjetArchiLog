@@ -39,10 +39,10 @@ namespace LibraryArchiLog.Controllers
 
         //[ApiVersion("2.0")]
         //[HttpGet]
-        //public async Task<IEnumerable<TModel>> GetAllFilter([FromQuery] String category)
+        //public async task<ienumerable<tmodel>> getallfilter([fromquery] string category)
         //{
 
-        //        return _context.Set<TModel>().Where(x => x.Active).ToList();
+        //        return _context.set<tmodel>().where(x => x.active).tolist();
 
 
         //}
