@@ -1,9 +1,11 @@
-﻿using System;
+﻿using LibraryArchiLog.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace LibraryArchiLog.Extensions
 {
@@ -11,26 +13,35 @@ namespace LibraryArchiLog.Extensions
     {
         public static IOrderedQueryable<TModel> Sort<TModel>(this IQueryable<TModel> query, Params p)
         {
-            if (!string.IsNullOrWhiteSpace(p.Key))
+            if (!string.IsNullOrWhiteSpace(p.Asc))
             {
-                string champ = p.Key;
+                string champ = p.Asc;
 
-
-                //return query.OrderBy(x => x.name);
-            }
-            else return (IOrderedQueryable<TModel>)query;
-        }
-
-        public static IOrderedQueryable<TModel> Filter<TModel>(this IQueryable<TModel> query, Params p )
-        {
-            if (!string.IsNullOrWhiteSpace(p.Key))
-            {
-                string champ = p.Key;
-
-
+                //créer lambda
                 var parameter = Expression.Parameter(typeof(TModel), "x");
+                var property = Expression.Property(parameter, champ/*"Name"*/);
+
+                var o = Expression.Convert(property, typeof(object));
+                var lambda = Expression.Lambda<Func<TModel, object>>(o, parameter);
+
+                //utilisation lambda
+                return query.OrderBy(lambda);
+                //return query.OrderBy(x => x.Name);
             }
-            else return (IOrderedQueryable<TModel>)query;
+            else
+                return (IOrderedQueryable<TModel>)query;
+
         }
+
+        //public static IOrderedQueryable<TModel> Filter<TModel>(this IQueryable<TModel> query, Params p )
+        //{
+        //    if (!string.IsNullOrWhiteSpace(p.Name))
+        //    {
+        //        string champ = p.Name;
+                
+        //        var parameter = Expression.Parameter(typeof(TModel), "x");
+        //    }
+        //    else return (IOrderedQueryable<TModel>)query;
+        //}
     }
 }
