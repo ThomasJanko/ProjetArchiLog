@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
+using LibraryArchiLog.Wrappers;
 
 namespace LibraryArchiLog.Controllers
 {
@@ -44,19 +45,7 @@ namespace LibraryArchiLog.Controllers
 
         //}
 
-        [ApiVersion("1.0")]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TModel>> GetItem(int id)
-        {
-            var item = await _context.Set<TModel>().FindAsync(id);
-
-            if (item == null || !item.Active)
-            {
-                return NotFound();
-            }
-
-            return item;
-        }
+      
 
         [ApiVersion("1.0")] 
         [HttpPut("{id}")]
