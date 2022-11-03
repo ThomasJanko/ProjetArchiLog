@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
-
+using LibraryArchiLog.Extensions;
 
 namespace LibraryArchiLog.Controllers
 {
@@ -29,7 +29,7 @@ namespace LibraryArchiLog.Controllers
         //[HttpGet]
         //public async Task<IEnumerable<TModel>> GetAll()
         //{
-            
+
         //    //return  await _context.Brands.ToListAsync();
         //    return   _context.Set<TModel>().Where(x => x.Active).ToList();
 
@@ -44,6 +44,16 @@ namespace LibraryArchiLog.Controllers
 
 
         //}
+
+        [ApiVersion("2.0")]
+        [HttpGet("sort")]
+        public async Task<IEnumerable<TModel>> GetAllSorted([FromQuery] SortParams param)
+        {
+
+            return await _context.Set<TModel>().Where(x => x.Active).Sort(param).ToListAsync();
+
+
+        }
 
         [ApiVersion("1.0")]
         [HttpGet("{id}")]
