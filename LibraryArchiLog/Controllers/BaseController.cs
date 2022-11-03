@@ -27,25 +27,16 @@ namespace LibraryArchiLog.Controllers
             _context = context;
         }
 
-        //[ApiVersion("1.0")]
-        //[HttpGet]
-        //public async Task<IEnumerable<TModel>> GetAll()
-        //{
+        [ApiVersion("1.0")]
+        [HttpGet("getall")]
+        public async Task<IEnumerable<TModel>> GetAll()
+        {
 
-        //    //return  await _context.Brands.ToListAsync();
-        //    return   _context.Set<TModel>().Where(x => x.Active).ToList();
+            //return  await _context.Brands.ToListAsync();
+            return _context.Set<TModel>().Where(x => x.Active).ToList();
 
-        //}
+        }
 
-        //[ApiVersion("2.0")]
-        //[HttpGet]
-        //public async Task<IEnumerable<TModel>> GetAllFilter([FromQuery] String category)
-        //{
-
-        //        return _context.Set<TModel>().Where(x => x.Active).ToList();
-
-
-        //}
 
 
 
