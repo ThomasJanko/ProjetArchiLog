@@ -22,7 +22,7 @@ namespace ProjetArchiLog.Controllers
         }
 
         [ApiVersion("2.0")]
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAll([FromQuery] PaginationFilter filter)
         {
             var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
@@ -40,16 +40,16 @@ namespace ProjetArchiLog.Controllers
         {
             if (category == null)
             {
-                return await _context.Set<Product>().Where(x => x.Active).ToListAsync();
+                return _context.Set<Product>().Where(x => x.Active).ToList();
 
             }
 
             return _context.Set<Product>().Where(x => x.Active && x.Category == category).ToList();
+
+
         }
-
-
         [ApiVersion("2.0")]
-        [HttpGet("product/{id}")]
+        [HttpGet("test/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var content = await _context.Products.Where(a => a.ID == id).FirstOrDefaultAsync();

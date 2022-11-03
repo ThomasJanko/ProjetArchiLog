@@ -28,7 +28,7 @@ namespace LibraryArchiLog.Controllers
         }
 
         [ApiVersion("1.0")]
-        [HttpGet("getall")]
+        [HttpGet]
         public async Task<IEnumerable<TModel>> GetAll()
         {
 
@@ -36,9 +36,6 @@ namespace LibraryArchiLog.Controllers
             return _context.Set<TModel>().Where(x => x.Active).ToList();
 
         }
-
-
-
 
         [ApiVersion("2.0")]
         [HttpGet("sort")]
