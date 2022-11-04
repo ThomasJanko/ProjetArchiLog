@@ -35,7 +35,7 @@ namespace ProjetArchiLog.Controllers
         }
 
         [ApiVersion("1.0")]
-        [HttpGet("filter")]
+        [HttpGet("filterV1")]
         public async Task<IEnumerable<Product>> GetAllFilter([FromQuery] string? category)
         {
             if (category == null)
@@ -48,8 +48,9 @@ namespace ProjetArchiLog.Controllers
 
 
         }
+
         [ApiVersion("2.0")]
-        [HttpGet("test/{id}")]
+        [HttpGet("product/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var content = await _context.Products.Where(a => a.ID == id).FirstOrDefaultAsync();
