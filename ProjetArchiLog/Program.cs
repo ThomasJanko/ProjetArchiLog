@@ -1,6 +1,9 @@
 
+using LibraryArchiLog.Services;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using ProjetArchiLog.data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddRazorPages();
+
+
+builder.Services.AddTransient<IUriService>();
+//builder.Services.AddScoped<>();
+//builder.Services.AddSingleton<I>();
 //Versioning
 builder.Services.AddApiVersioning(o =>
 {
@@ -41,7 +51,6 @@ if (app.Environment.IsDevelopment())
 //        options.GroupNameFormat = "'v'VVV";
 //        options.SubstituteApiVersionInUrl = true;
 //    });
-
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -49,3 +58,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+//transient
+//addScope
+//addSingelton

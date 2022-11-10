@@ -38,7 +38,7 @@ namespace Pagination.WebApi
             {
                 var accessor = o.GetRequiredService<IHttpContextAccessor>();
                 var request = accessor.HttpContext.Request;
-                var uri = string.Concat(request.Scheme, "://" ,request.Host.ToUriComponent());
+                var uri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
                 return new UriService(uri);
             });
             services.AddControllers();
