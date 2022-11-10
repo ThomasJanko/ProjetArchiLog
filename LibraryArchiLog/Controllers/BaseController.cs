@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 using LibraryArchiLog.Wrappers;
 using LibraryArchiLog.Extensions;
-
+using System.Net;
 
 namespace LibraryArchiLog.Controllers
 {
@@ -45,6 +45,21 @@ namespace LibraryArchiLog.Controllers
             return await _context.Set<TModel>().Where(x => x.Active).Sort(param).ToListAsync();
 
 
+        }
+
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ApiVersion("3.0")]
+        [HttpGet("search")]
+        public virtual async Task<ActionResult<IEnumerable<dynamic>>> SearchAsync([FromQuery] string name, string category)
+        {
+            var contents = _context.Set<TModel>().AsQueryable();
+
+            if (!string.IsNullOrEmpty(name) /*|| !string.IsNullOrEmpty(category) || !string.IsNullOrEmpty(rating) || !string.IsNullOrEmpty(date)*/)
+            {
+                contents = contents.SearchThis(name, category);
+            }
+            return Ok(await contents.ToListAsync());
         }
 
         [ApiVersion("1.0")]
