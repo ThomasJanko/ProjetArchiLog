@@ -17,7 +17,7 @@ namespace ProjetArchiLog.Controllers
     [Route("/api/v{version:apiVersion}/[controller]")]
     public class ProductsController : BaseController<ArchiLogDbContext, Product, IUriService>
     {
-        public ProductsController(ArchiLogDbContext context, IUriService service):base(context, service)
+        public ProductsController(ArchiLogDbContext context, IUriService service) : base(context, service)
         {
             
         }
