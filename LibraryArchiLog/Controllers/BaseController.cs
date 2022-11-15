@@ -9,22 +9,24 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 using LibraryArchiLog.Wrappers;
 using LibraryArchiLog.Extensions;
-
+using LibraryArchiLog.Services;
+using LibraryArchiLog.Filter;
+using LibraryArchiLog.Helpers;
 
 namespace LibraryArchiLog.Controllers
 {
     [ApiController]
-    public class BaseController<TContext, TModel> : ControllerBase where TContext: BaseDbContext where TModel: BaseModel
+    public abstract class BaseController<TContext, TModel, TUriService> : ControllerBase where TContext: BaseDbContext where TModel: BaseModel where TUriService : IUriService
     {
         protected readonly TContext _context;
-        
+        protected readonly TUriService _uriService;
 
-        public BaseController(TContext context)
+        public BaseController(TContext context, TUriService uriService)
         {
             _context = context;
+            _uriService = uriService;
         }
 
         [ApiVersion("1.0")]
@@ -121,6 +123,53 @@ namespace LibraryArchiLog.Controllers
         private bool ItemExists(int id)
         {
             return _context.Set<TModel>().Any(e => e.ID == id);
+        }
+
+
+        [HttpGet("Filters/v3")]
+        [ApiVersion("3.0")]
+        public async Task<ActionResult<IEnumerable<TModel>>> GetAllFilters(string range, string asc, string desc, string type, string rating, string date)
+        {
+            var contents = _context.Set<TModel>().AsQueryable();
+
+
+            //filter 
+            if (!string.IsNullOrEmpty(type) || !string.IsNullOrEmpty(rating) || !string.IsNullOrEmpty(date))
+            {
+                contents = contents.FilterThis(type, rating, date);
+            }
+
+            var totalRecords = await contents.CountAsync();
+            if (totalRecords > 0)
+            {
+                if (String.IsNullOrEmpty(range))
+                {
+                    range = 1 + "-" + totalRecords;
+                }
+                var route = Request.Path.Value;
+            
+
+            var tab = range.Split('-');
+            var start = int.Parse(tab[0]);
+            var end = int.Parse(tab[1]);
+            var validRange = new RangeFilter(start, end, totalRecords);
+            var pageSize = (1 + validRange.End - validRange.Start);
+            var page = 1 + (validRange.Start / pageSize);
+            var validFilter = new PaginationFilter(page, pageSize);
+
+            var pagedData = await contents
+                    .Skip((validFilter.Page - 1) * validFilter.PageSize)
+                    .Take(validFilter.PageSize)
+                    .ToListAsync();
+            var pagedResponse = PaginationHelper.CreatePagedResponse<TModel>(pagedData, range, validFilter, totalRecords, _uriService, route, asc, desc, type, rating, date);
+
+            return Ok(pagedResponse);
+            }
+            else
+            {
+                return new List<TModel>();
+            }
+
         }
     }
 }
