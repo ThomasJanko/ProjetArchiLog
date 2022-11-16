@@ -80,14 +80,15 @@ namespace LibraryArchiLog.Extensions
             }
         }
 
-        private static MemberExpression GetMemberExpression<TModel>(ParameterExpression parameter, string propName) where TModel : BaseModel
-        {
-            if (string.IsNullOrEmpty(propName)) return null;
-            else
-            {
-                return Expression.Property(parameter, propName);
-            }
-        }
+        //version 1
+        //private static MemberExpression GetMemberExpression<TModel>(ParameterExpression parameter, string propName) where TModel : BaseModel
+        //{
+        //    if (string.IsNullOrEmpty(propName)) return null;
+        //    else
+        //    {
+        //        return Expression.Property(parameter, propName);
+        //    }
+        //}
 
         public static Expression<Func<TModel, object>> GetExpression<TModel>(string propertyName)
         {
@@ -332,55 +333,8 @@ namespace LibraryArchiLog.Extensions
         }
         //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-        public static Expression<Func<TModel, bool>> GetCriteriaWhere<TModel>(string fieldName, OperationExpression selectedOperator, object fieldValue) where TModel : BaseModel
-        {
-
-            var propInfo = typeof(TModel).GetProperty(fieldName, BindingFlags.Public | BindingFlags.IgnoreCase | BindingFlags.Instance);
-            var parameter = Expression.Parameter(typeof(TModel), "x");
-            var expressionParameter = GetMemberExpression<TModel>(parameter, fieldName);
-            if (propInfo != null && fieldValue != null)
-            {
-
-                BinaryExpression body = null;
-
-                switch (selectedOperator)
-                {
-                    case OperationExpression.Equals:
-                        body = Expression.Equal(expressionParameter, Expression.Constant(fieldValue, propInfo.PropertyType));
-                        return Expression.Lambda<Func<TModel, bool>>(body, parameter);
-                    case OperationExpression.NotEquals:
-                        body = Expression.NotEqual(expressionParameter, Expression.Constant(fieldValue, propInfo.PropertyType));
-                        return Expression.Lambda<Func<TModel, bool>>(body, parameter);
-                    case OperationExpression.Minor:
-                        body = Expression.LessThan(expressionParameter, Expression.Constant(fieldValue, propInfo.PropertyType));
-                        return Expression.Lambda<Func<TModel, bool>>(body, parameter);
-                    case OperationExpression.MinorEquals:
-                        body = Expression.LessThanOrEqual(expressionParameter, Expression.Constant(fieldValue, propInfo.PropertyType));
-                        return Expression.Lambda<Func<TModel, bool>>(body, parameter);
-                    case OperationExpression.Mayor:
-                        body = Expression.GreaterThan(expressionParameter, Expression.Constant(fieldValue, propInfo.PropertyType));
-                        return Expression.Lambda<Func<TModel, bool>>(body, parameter);
-                    case OperationExpression.MayorEquals:
-                        body = Expression.GreaterThanOrEqual(expressionParameter, Expression.Constant(fieldValue, propInfo.PropertyType));
-                        return Expression.Lambda<Func<TModel, bool>>(body, parameter);
-                    case OperationExpression.Like:
-                        MethodInfo contains = typeof(string).GetMethod("Contains");
-                        var bodyLike = Expression.Call(expressionParameter, contains, Expression.Constant(fieldValue, propInfo.PropertyType));
-                        return Expression.Lambda<Func<TModel, bool>>(bodyLike, parameter);
-                    case OperationExpression.Contains:
-                        return Contains<TModel>(fieldName, fieldValue, parameter, expressionParameter);
-                    default:
-                        throw new Exception("Not implement Operation");
-                }
-            }
-            else
-            {
-                Expression<Func<TModel, bool>> filter = x => true;
-                return filter;
-            }
-        }
-
+   
+        //Récupérer une expression
         private static MemberExpression GetMemberExpression<TModel>(ParameterExpression parameter, string propName) where TModel : BaseModel
         {
             if (string.IsNullOrEmpty(propName)) return null;
@@ -390,31 +344,5 @@ namespace LibraryArchiLog.Extensions
             }
         }
 
-        public static Expression<Func<TModel, object>> GetExpression<TModel>(string propertyName)
-        {
-            var param = Expression.Parameter(typeof(TModel), "x");
-            Expression conversion = Expression.Convert(Expression.Property(param, propertyName), typeof(object));
-            return Expression.Lambda<Func<TModel, object>>(conversion, param);
-        }
-
-        private static Expression<Func<TModel, bool>> Contains<TModel>(string fieldName, object fieldValue, ParameterExpression parameterExpression, MemberExpression memberExpression) where TModel : BaseModel
-        {
-            var propertyExp = Expression.Property(parameterExpression, fieldName);
-            if (propertyExp.Type == typeof(string))
-            {
-                MethodInfo method = typeof(string).GetMethod("Contains", new[] { typeof(string) });
-                var someValue = Expression.Constant(fieldValue, typeof(string));
-                var containsMethodExp = Expression.Call(propertyExp, method, someValue);
-                return Expression.Lambda<Func<TModel, bool>>(containsMethodExp, parameterExpression);
-            }
-            else
-            {
-                var converter = TypeDescriptor.GetConverter(propertyExp.Type);
-                var result = converter.ConvertFrom(fieldValue);
-                var someValue = Expression.Constant(result);
-                var containsMethodExp = Expression.Equal(propertyExp, someValue);
-                return Expression.Lambda<Func<TModel, bool>>(containsMethodExp, parameterExpression);
-            }
-        }
     }
 }
