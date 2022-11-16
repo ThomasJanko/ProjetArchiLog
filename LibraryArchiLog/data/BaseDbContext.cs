@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
+using Microsoft.Build.Tasks.Deployment.Bootstrapper;
 
 namespace LibraryArchiLog.data
 {
     public class BaseDbContext : DbContext
     {
+
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellation = default)
         {
@@ -48,5 +50,6 @@ namespace LibraryArchiLog.data
             }
         
     }
-}
+        
+    }
 }

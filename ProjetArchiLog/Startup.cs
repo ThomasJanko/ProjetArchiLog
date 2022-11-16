@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ProjetArchiLog.data;
 using LibraryArchiLog.Services;
+using Microsoft.Extensions.DependencyModel;
 
 namespace Pagination.WebApi
 {
@@ -34,11 +35,12 @@ namespace Pagination.WebApi
                     Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ArchiLogDbContext).Assembly.FullName)));
             services.AddHttpContextAccessor();
+            //services.AddScoped<IUriService, UriService>();
             services.AddSingleton<IUriService>(o =>
             {
                 var accessor = o.GetRequiredService<IHttpContextAccessor>();
                 var request = accessor.HttpContext.Request;
-                var uri = string.Concat(request.Scheme, "://" ,request.Host.ToUriComponent());
+                var uri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
                 return new UriService(uri);
             });
             services.AddControllers();
