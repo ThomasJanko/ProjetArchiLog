@@ -128,7 +128,7 @@ namespace LibraryArchiLog.Controllers
 
         [HttpGet("Filters/v3")]
         [ApiVersion("3.0")]
-        public async Task<ActionResult<IEnumerable<TModel>>> GetAllFilters(string range, string asc, string desc, string type, string rating, string date)
+        public async Task<ActionResult<IEnumerable<TModel>>> GetAllFilters(string? range, string? asc, string? desc, string? type, string? rating, string? date)
         {
             var contents = _context.Set<TModel>().AsQueryable();
 

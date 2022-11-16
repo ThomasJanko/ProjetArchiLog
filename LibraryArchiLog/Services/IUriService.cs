@@ -9,11 +9,11 @@ namespace LibraryArchiLog.Services
 {
     public interface IUriService
     {
-        public Uri GetPageUri(string range, string route, string asc, string desc, string type, string rating, string date);
+        public Uri GetPageUri(string? range, string? route, string? asc, string? desc, string? type, string? rating, string? date);
 
-        public interface IOperationTransient : IUriService { }
-        public interface IOperationScoped : IUriService { }
-        public interface IOperationSingleton : IUriService { }
+        //public interface IOperationTransient : IUriService { }
+        //public interface IOperationScoped : IUriService { }
+        //public interface IOperationSingleton : IUriService { }
     }
 
 }
