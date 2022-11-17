@@ -52,7 +52,7 @@ namespace Pagination.WebApi
             .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => Configuration.Bind("JwtSettings", options))
             .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => Configuration.Bind("CookieSettings", options));
 
-
+          
 
         }
 

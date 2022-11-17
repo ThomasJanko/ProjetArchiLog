@@ -30,9 +30,19 @@ namespace LibraryArchiLog.Controllers
             _context = context;
             _uriService = uriService;
         }
+        //test avec Autorization
+        [ApiVersion("2.0")]
+        [HttpGet("auth"), Authorize]
+        public async Task<IEnumerable<TModel>> GetAllAuth()
+        {
+
+            //return  await _context.Brands.ToListAsync();
+            return _context.Set<TModel>().Where(x => x.Active).ToList();
+
+        }
 
         [ApiVersion("1.0")]
-        [HttpGet, Authorize]
+        [HttpGet]
         public async Task<IEnumerable<TModel>> GetAll()
         {
 
