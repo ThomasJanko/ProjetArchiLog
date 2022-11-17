@@ -22,18 +22,19 @@ namespace ProjetArchiLog.Controllers
             
         }
 
-        //[ApiVersion("2.0")]
-        //[HttpGet("all")]
-        //public async Task<IActionResult> GetAll([FromQuery] PaginationFilter filter)
-        //{
-        //    var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
-        //    var pagedData = await _context.Products
-        //        .Skip((validFilter.PageNumber - 1) * validFilter.PageSize)
-        //        .Take(validFilter.PageSize)
-        //        .ToListAsync();
-        //    var totalRecords = await _context.Products.CountAsync();
-        //    return Ok(new PagedResponse<List<Product>>(pagedData, validFilter.PageNumber, validFilter.PageSize));
-        //}
+        [ApiVersion("2.0")]
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAll([FromQuery] PaginationFilter filter)
+        {
+            
+            var validFilter = new PaginationFilter(filter.Page, filter.PageSize);
+            var pagedData = await _context.Products
+                .Skip((validFilter.Page - 1) * validFilter.PageSize)
+                .Take(validFilter.PageSize)
+                .ToListAsync();
+            var totalRecords = await _context.Products.CountAsync();
+            return Ok(new PagedResponse<List<Product>>(pagedData, "1", validFilter.Page, validFilter.PageSize));
+        }
 
         [ApiVersion("1.0")]
         [HttpGet("filterV1")]

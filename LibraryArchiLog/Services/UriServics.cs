@@ -23,7 +23,7 @@ namespace LibraryArchiLog.Services
         //    return new Uri(modifiedUri);
         //}
 
-        public Uri GetPageUri(string? range, string route, string? asc, string? desc, string? type, string? rating, string? date)
+        public Uri GetPageUri(string range, string route, string asc, string desc, string type, string rating, string date)
         {
             var _enpointUri = new Uri(string.Concat(_baseUri, route));
 
@@ -47,7 +47,7 @@ namespace LibraryArchiLog.Services
             }
             if (!string.IsNullOrEmpty(date))
             {
-                modifiedUri = QueryHelpers.AddQueryString(modifiedUri, "date", date);
+                modifiedUri = QueryHelpers.AddQueryString(modifiedUri, "Date", date);
             }
 
 

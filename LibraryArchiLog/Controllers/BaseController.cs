@@ -15,7 +15,7 @@ using System.Net;
 using LibraryArchiLog.Services;
 using LibraryArchiLog.Filter;
 using LibraryArchiLog.Helpers;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace LibraryArchiLog.Controllers
 {
@@ -32,7 +32,7 @@ namespace LibraryArchiLog.Controllers
         }
 
         [ApiVersion("1.0")]
-        [HttpGet]
+        [HttpGet, Authorize]
         public async Task<IEnumerable<TModel>> GetAll()
         {
 
@@ -111,7 +111,7 @@ namespace LibraryArchiLog.Controllers
         }
 
         [ApiVersion("1.0")]
-        [HttpPost]
+        [HttpPost, Authorize]
         public async Task<ActionResult<TModel>> PostItem(TModel item)
         {
             _context.Set<TModel>().Add(item);
@@ -145,7 +145,7 @@ namespace LibraryArchiLog.Controllers
 
         [HttpGet("Filters/v3")]
         [ApiVersion("3.0")]
-        public async Task<ActionResult<IEnumerable<TModel>>> GetAllFilters(string? range, string? asc, string? desc, string? type, string? rating, string? date)
+        public async Task<ActionResult<IEnumerable<TModel>>> GetAllFilters(string? range, string asc, string? desc, string? type, string? rating, string? date)
         {
             var contents = _context.Set<TModel>().AsQueryable();
 
